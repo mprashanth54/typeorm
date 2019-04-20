@@ -3,7 +3,7 @@ import product from './product'
 
 @Entity()
 export class Manufacturer {
-  @OneToMany(type => product, product => product.manufacturer_id)
+  @OneToMany(type => product, product => product.manufacturerID)
   @PrimaryGeneratedColumn()
   public id: number;
 

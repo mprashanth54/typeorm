@@ -4,6 +4,7 @@ import { createConnection } from 'typeorm';
 import todoController from './controller/todoController'
 import manufacturerController from './controller/manufacturerController'
 import productController from './controller/productController'
+import authController from './controller/authController'
 import { json } from 'body-parser'
 
 createConnection().then(() => {
@@ -13,6 +14,8 @@ createConnection().then(() => {
   app.get("/", (req, res) => {
     res.json({ message: "Connected" })
   })
+
+  app.use("/auth/", authController)
 
   app.use("/todo/", todoController)
 

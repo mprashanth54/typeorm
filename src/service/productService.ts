@@ -12,7 +12,7 @@ class ProductService {
   async findOne(id: number) {
     this.initialize()
     return await this.repository.findOne(id, {
-      relations: ["manufacturer_id"]
+      relations: ["manufacturerID"]
     })
   }
 
@@ -20,7 +20,7 @@ class ProductService {
     this.initialize()
     let data = new Product()
     data.name = product.name
-    data.manufacturer_id = product.manufacturer_id
+    data.manufacturerID = product.manufacturerID
     data.qty = product.qty
     data.price = product.price
     await this.repository.save(data);

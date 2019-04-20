@@ -13,6 +13,7 @@ router.post("/", async (req, res) => {
     const result = await manufacturerService.save(req.body)
     res.json({ manufacturer: result })
   } catch (err) {
+    console.log(err)
     res.status(422).json({ message: "manufacturer could not be saved" })
   }
 })

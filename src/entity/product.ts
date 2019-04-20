@@ -11,7 +11,7 @@ export class Product {
 
   @ManyToOne(type => manufacturer, manufacturer => manufacturer.id)
   @Column()
-  public manufacturer_id: number;
+  public manufacturerID: number;
 
   @Column("integer")
   public qty: number = 0;
