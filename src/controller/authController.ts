@@ -5,7 +5,7 @@ const router = Router()
 router.post("/register", async (req, res) => {
   try {
     await AuthService.register(req.body)
-    res.json({ message: "User successfully registered" })
+    res.json({ message: "Successfully logged in" })
   } catch (err) {
     console.log(err)
     res.status(422).json({ message: "User could not be registered" })
@@ -14,23 +14,12 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    await AuthService.login(req.body)
-    res.json({ message: "User logged in" })
+    const token = await AuthService.login(req.body)
+    res.json({ message: "User logged in", token: token })
   } catch (err) {
     console.log(err)
     res.status(422).json({ message: err })
   }
 })
-
-
-// router.post("/", async (req, res) => {
-//   try {
-//     const result = await productService.save(req.body)
-//     res.json({ product: result })
-//   } catch (err) {
-//     console.log(err)
-//     res.status(422).json({ message: "product could not be saved" })
-//   }
-// })
 
 export default router
